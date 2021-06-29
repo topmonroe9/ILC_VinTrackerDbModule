@@ -149,6 +149,39 @@ function TrackingCarriers(dbURI) {
             freezeTableName: true
         });
 
+    this.AutoriaCarCheckList = tracking_carriers.define('autoria_car_cloning_checklist', {
+            id: {
+                type: DataTypes.STRING,
+                primaryKey: true,
+                allowNull: false,
+            }
+
+    }, {
+            freezeTableName: true
+        });
+
+    this.AutoRiaSellerCheckList = tracking_carriers.define('autoria_seller_cloning_checklist', {
+            id: {
+                type: DataTypes.STRING,
+                primaryKey: true,
+                allowNull: false,
+            }
+
+    }, {
+            freezeTableName: true
+        });
+
+    this.AutoRiaSellerHistoryCheckList = tracking_carriers.define('autoria_seller_history_cloning_checklist', {
+            id: {
+                type: DataTypes.STRING,
+                primaryKey: true,
+                allowNull: false,
+            }
+
+    }, {
+            freezeTableName: true
+        });
+
 }
 
 module.exports = TrackingCarriers
