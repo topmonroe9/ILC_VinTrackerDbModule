@@ -202,10 +202,10 @@ function TrackingCarriers(dbURI) {
             allowNull: false,
         },
         countOfActiveAuto: {
-               type: INTEGER(5).UNSIGNED
+               type: DataTypes.SMALLINT(5).UNSIGNED
         },
         countOfSoldAuto: {
-               type: INTEGER(5).UNSIGNED,
+               type: DataTypes.SMALLINT(5).UNSIGNED,
         },
         sellerId: {
                type: DataTypes.INTEGER,
