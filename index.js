@@ -91,6 +91,10 @@ function TrackingCarriers(dbURI) {
         },
         userSiteId: {
             type: DataTypes.BIGINT,
+        },
+        autoria_car_id: {
+            type: DataTypes.BIGINT,
+
         }
     }, {
         freezeTableName: true
@@ -176,6 +180,43 @@ function TrackingCarriers(dbURI) {
         freezeTableName: true
     });
 
+    this.AutoriaSeller = tracking_carriers.define( 'autoria_seller', {
+          id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+        },
+        siteId: {
+               type: DataTypes.INTEGER,
+        },
+        siteName: {
+               type: DataTypes.STRING,
+        },
+        city: {
+               type: DataTypes.STRING,
+        },
+        countOfActiveAuto: {
+               type: DataTypes.SMALLINT,
+        },
+        countOfSoldAuto: {
+               type: DataTypes.SMALLINT,
+        },
+        email: {
+               type: DataTypes.STRING,
+        },
+        phone: {
+               type: DataTypes.STRING,
+        },
+        registeredDate: {
+               type: DataTypes.DATE,
+        },
+        type: {
+               type: DataTypes.STRING,
+        }
+    }, {
+        freezeTableName: true
+    })
+
     this.AutoRiaSellerHistoryCheckList = tracking_carriers.define('autoria_seller_history_cloning_checklist', {
         id: {
             type: DataTypes.STRING,
@@ -186,6 +227,26 @@ function TrackingCarriers(dbURI) {
     }, {
         freezeTableName: true
     });
+
+    this.AutoRiaSellerHistory = tracking_carriers.define( 'autoria_seller_history', {
+          id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+        },
+        countOfActiveAuto: {
+               type: DataTypes.SMALLINT,
+        },
+        countOfSoldAuto: {
+               type: DataTypes.SMALLINT,
+        },
+        sellerId: {
+               type: DataTypes.INTEGER,
+        }
+    }, {
+        freezeTableName: true
+    })
+
 
 }
 
