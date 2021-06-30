@@ -158,30 +158,8 @@ function TrackingCarriers(dbURI) {
         freezeTableName: true
     });
 
-    this.AutoriaCarCheckList = tracking_carriers.define('autoria_car_cloning_checklist', {
-        id: {
-            type: DataTypes.STRING,
-            primaryKey: true,
-            allowNull: false,
-        }
-
-    }, {
-        freezeTableName: true
-    });
-
-    this.AutoRiaSellerCheckList = tracking_carriers.define('autoria_seller_cloning_checklist', {
-        id: {
-            type: DataTypes.STRING,
-            primaryKey: true,
-            allowNull: false,
-        }
-
-    }, {
-        freezeTableName: true
-    });
-
     this.AutoriaSeller = tracking_carriers.define( 'autoria_seller', {
-          id: {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
@@ -217,17 +195,6 @@ function TrackingCarriers(dbURI) {
         freezeTableName: true
     })
 
-    this.AutoRiaSellerHistoryCheckList = tracking_carriers.define('autoria_seller_history_cloning_checklist', {
-        id: {
-            type: DataTypes.STRING,
-            primaryKey: true,
-            allowNull: false,
-        }
-
-    }, {
-        freezeTableName: true
-    });
-
     this.AutoRiaSellerHistory = tracking_carriers.define( 'autoria_seller_history', {
           id: {
             type: DataTypes.INTEGER,
@@ -235,10 +202,10 @@ function TrackingCarriers(dbURI) {
             allowNull: false,
         },
         countOfActiveAuto: {
-               type: DataTypes.SMALLINT,
+               type: INTEGER(5).UNSIGNED
         },
         countOfSoldAuto: {
-               type: DataTypes.SMALLINT,
+               type: INTEGER(5).UNSIGNED,
         },
         sellerId: {
                type: DataTypes.INTEGER,
