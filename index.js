@@ -55,56 +55,72 @@ function TrackingCarriers(dbURI) {
         freezeTableName: true
     });
 
-    this.VinsList = tracking_carriers.define('vins_list', {
-        vin: {
-            type: DataTypes.STRING,
+    this.VinsList = tracking_carriers.define('vins_list_id', {
+        id_vins_list: {
+            type: DataTypes.BIGINT(20),
             primaryKey: true,
+            autoIncrement: true
+        },
+        vin: {
+            type: DataTypes.STRING(255),
+            unique: 'idx_vin_userSiteId',
             allowNull: false,
         },
         atlantis_checked: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         baltic_checked: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         columbauto_checked: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         liontrans_checked: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         lubeauto_checked: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         vsbros_checked: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         w8_checked: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         userSiteId: {
-            type: DataTypes.BIGINT,
+            type: DataTypes.BIGINT(20),
+            defaultValue: null,
+            allowNull: false,
+            unique: 'idx_vin_userSiteId'
         },
         autoria_car_id: {
-            type: DataTypes.BIGINT,
+            type: DataTypes.BIGINT(20),
+            defaultValue: null
+
 
         }
     }, {
         freezeTableName: true
     });
 
-    this.VinsData = tracking_carriers.define('vins_data', {
+    this.VinsData = tracking_carriers.define('vins_data_id', {
         // Model attributes are defined here
-        vin: {
+        id_vins_data: {
             type: DataTypes.STRING,
             primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
+        },
+        vin: {
+            type: DataTypes.STRING(255),
+            unique: 'idx_vin_userSiteId',
             allowNull: false,
         },
         atlantis: {
@@ -152,63 +168,66 @@ function TrackingCarriers(dbURI) {
             type: DataTypes.DATE,
         },
         userSiteId: {
-            type: DataTypes.BIGINT,
-        }
+            type: DataTypes.BIGINT(20),
+            defaultValue: null,
+            allowNull: false,
+            unique: 'idx_vin_userSiteId'
+        },
     }, {
         freezeTableName: true
     });
 
-    this.AutoriaSeller = tracking_carriers.define( 'autoria_seller', {
+    this.AutoriaSeller = tracking_carriers.define('autoria_seller', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
         },
         siteId: {
-               type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         },
         siteName: {
-               type: DataTypes.STRING,
+            type: DataTypes.STRING,
         },
         city: {
-               type: DataTypes.STRING,
+            type: DataTypes.STRING,
         },
         countOfActiveAuto: {
-               type: DataTypes.SMALLINT,
+            type: DataTypes.SMALLINT,
         },
         countOfSoldAuto: {
-               type: DataTypes.SMALLINT,
+            type: DataTypes.SMALLINT,
         },
         email: {
-               type: DataTypes.STRING,
+            type: DataTypes.STRING,
         },
         phone: {
-               type: DataTypes.STRING,
+            type: DataTypes.STRING,
         },
         registeredDate: {
-               type: DataTypes.DATE,
+            type: DataTypes.DATE,
         },
         type: {
-               type: DataTypes.STRING,
+            type: DataTypes.STRING,
         }
     }, {
         freezeTableName: true
     })
 
-    this.AutoRiaSellerHistory = tracking_carriers.define( 'autoria_seller_history', {
-          id: {
+    this.AutoRiaSellerHistory = tracking_carriers.define('autoria_seller_history', {
+        id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
         },
         countOfActiveAuto: {
-               type: DataTypes.SMALLINT(5).UNSIGNED
+            type: DataTypes.SMALLINT(5).UNSIGNED
         },
         countOfSoldAuto: {
-               type: DataTypes.SMALLINT(5).UNSIGNED,
+            type: DataTypes.SMALLINT(5).UNSIGNED,
         },
         sellerId: {
-               type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER,
         }
     }, {
         freezeTableName: true
