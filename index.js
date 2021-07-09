@@ -118,9 +118,8 @@ function TrackingCarriers(dbURI) {
     this.VinsData = tracking_carriers.define(vinsDataSchema, {
         // Model attributes are defined here
         id_vins_data: {
-            type: DataTypes.STRING,
+            type: DataTypes.BIGINT,
             primaryKey: true,
-            allowNull: false,
             autoIncrement: true
         },
         vin: {
@@ -130,35 +129,35 @@ function TrackingCarriers(dbURI) {
         },
         atlantis: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         baltic: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         columbauto: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         liontrans: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         lubeauto: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         vsbros: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         w8: {
             type: DataTypes.BOOLEAN,
-            default: false,
+            defaultValue: false,
         },
         ilc: {
             type: DataTypes.BOOLEAN,
-            default: false
+            defaultValue: false
         },
         carrier: {
             type: DataTypes.STRING,
