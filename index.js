@@ -1,19 +1,19 @@
 const {Sequelize, DataTypes} = require('sequelize');
 
-const vinsListSchema =              'vins_list_id'
-const vinsDataSchema =              'vins_data_id'
-const autoriaSeller =               'autoria_seller'
-const autoriaSellerHistory =        'autoria_seller_history'
-const dbparserChecklist =           'dbparser_auctions_all_lots_checklist'
-const dbparserMatch =               'dbparser_auctions_match'
-const dealsDataCheckList =          'ilcadmin_b24_deals_data_checklist'
+const vinsListSchema =              process.env.TRCKNCRRS_VINSLIST_TBLNAME || 'vins_list_id'
+const vinsDataSchema =              process.env.TRCKNCRRS_VINSDATA_TBLNAME || 'vins_data_id'
+const autoriaSeller =               process.env.TRCKNCRRS_AUTORIA_SELLER_TBLNAME || 'autoria_seller'
+const autoriaSellerHistory =        process.env.TRCKNCRRS_AUTORIA_SELLER_HISTORY_TBLNAME || 'autoria_seller_history'
+const dbparserChecklist =           process.env.TRCKNCRRS_DBPARSER_AUCTIONS_CHECKLIST_TBLNAME || 'dbparser_auctions_all_lots_checklist'
+const dbparserMatch =               process.env.TRCKNCRRS_DBPARSER_AUCTIONS_MATCH_TBLNAME || 'dbparser_auctions_match'
+const dealsDataCheckList =          process.env.TRCKNCRRS_ILCADMIN_B24_DEALS_DATA_CHECKLIST_TBLNAME || 'ilcadmin_b24_deals_data_checklist'
 
 
 function TrackingCarriers(dbURI) {
     const tracking_carriers = new Sequelize(dbURI)
     this.tracking_carriers = tracking_carriers
 
-    this.DealsDataCheckList = tracking_carriers.define(, {
+    this.DealsDataCheckList = tracking_carriers.define(dealsDataCheckList, {
         id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
@@ -22,7 +22,7 @@ function TrackingCarriers(dbURI) {
     }, {
         freezeTableName: true
     })
-    this.DBParserMatch = tracking_carriers.define('dbparser_auctions_match', {
+    this.DBParserMatch = tracking_carriers.define(dbparserMatch, {
         vin: {
             type: DataTypes.STRING,
             primaryKey: true,
