@@ -1,11 +1,19 @@
 const {Sequelize, DataTypes} = require('sequelize');
 
+const vinsListSchema =              'vins_list_id'
+const vinsDataSchema =              'vins_data_id'
+const autoriaSeller =               'autoria_seller'
+const autoriaSellerHistory =        'autoria_seller_history'
+const dbparserChecklist =           'dbparser_auctions_all_lots_checklist'
+const dbparserMatch =               'dbparser_auctions_match'
+const dealsDataCheckList =          'ilcadmin_b24_deals_data_checklist'
+
 
 function TrackingCarriers(dbURI) {
     const tracking_carriers = new Sequelize(dbURI)
     this.tracking_carriers = tracking_carriers
 
-    this.DealsDataCheckList = tracking_carriers.define('ilcadmin_b24_deals_data_checklist', {
+    this.DealsDataCheckList = tracking_carriers.define(, {
         id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
@@ -45,7 +53,7 @@ function TrackingCarriers(dbURI) {
         freezeTableName: true
     })
 
-    this.DBparserCheckList = tracking_carriers.define('dbparser_auctions_all_lots_checklist', {
+    this.DBparserCheckList = tracking_carriers.define(dbparserChecklist, {
         id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
@@ -55,7 +63,7 @@ function TrackingCarriers(dbURI) {
         freezeTableName: true
     });
 
-    this.VinsList = tracking_carriers.define('vins_list_id', {
+    this.VinsList = tracking_carriers.define(vinsListSchema, {
         id_vins_list: {
             type: DataTypes.BIGINT(20),
             primaryKey: true,
@@ -97,20 +105,17 @@ function TrackingCarriers(dbURI) {
         userSiteId: {
             type: DataTypes.BIGINT(20),
             defaultValue: null,
-            allowNull: false,
             unique: 'idx_vin_userSiteId'
         },
         autoria_car_id: {
             type: DataTypes.BIGINT(20),
             defaultValue: null
-
-
         }
     }, {
         freezeTableName: true
     });
 
-    this.VinsData = tracking_carriers.define('vins_data_id', {
+    this.VinsData = tracking_carriers.define(vinsDataSchema, {
         // Model attributes are defined here
         id_vins_data: {
             type: DataTypes.STRING,
@@ -170,14 +175,13 @@ function TrackingCarriers(dbURI) {
         userSiteId: {
             type: DataTypes.BIGINT(20),
             defaultValue: null,
-            allowNull: false,
             unique: 'idx_vin_userSiteId'
         },
     }, {
         freezeTableName: true
     });
 
-    this.AutoriaSeller = tracking_carriers.define('autoria_seller', {
+    this.AutoriaSeller = tracking_carriers.define(autoriaSeller, {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -214,7 +218,7 @@ function TrackingCarriers(dbURI) {
         freezeTableName: true
     })
 
-    this.AutoRiaSellerHistory = tracking_carriers.define('autoria_seller_history', {
+    this.AutoRiaSellerHistory = tracking_carriers.define(autoriaSellerHistory, {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
